@@ -4,31 +4,23 @@
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
   --font-malayalam: var(--font-noto-sans-malayalam), sans-serif;
   
-  --color-brand-cyan: #00CBD5;
-  --color-brand-yellow: #FACC15;
-  --color-brand-orange: #F97316;
-  --color-brand-navy: #051937;
+  --color-brand-gold: #FFB800;
+  --color-brand-orange: #FF5C00;
+  --color-brand-charcoal: #1C1917;
+  --color-brand-obsidian: #0F0D0C;
 
-  --color-primary: var(--color-brand-cyan);
-  --color-secondary: var(--color-brand-yellow);
+  --color-primary: var(--color-brand-gold);
+  --color-secondary: var(--color-brand-orange);
   --color-accent: var(--color-brand-orange);
   
-  --color-background-light: #F8FAFC;
-  --color-background-dark: #051937;
-  --color-card-dark: #0A2647;
-  --color-deep-navy: #051937;
+  --color-background-dark: #0F0D0C;
+  --color-card-dark: #1C1917;
+  --color-deep-navy: #0F0D0C;
 }
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #0F172A;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0F172A;
-    --foreground: #F8FAFC;
-  }
+  --background: #0F0D0C;
+  --foreground: #FFFFFF;
 }
 
 body {
