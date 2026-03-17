@@ -1,0 +1,369 @@
+<html lang="en">
+
+<head></head>
+
+<body
+    class="bg-background-cream font-display text-cocoa min-h-screen relative overflow-x-hidden selection:bg-accent/30">
+
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8B5E3C", "accent": "#D2B48C", "background-cream": "#FAF9F6", "cocoa": "#3E2723",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .glass-card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(139, 94, 60, 0.1);
+      box-shadow: 0 10px 30px -10px rgba(62, 39, 35, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(139, 94, 60, 0.3);
+      background: rgba(255, 255, 255, 0.8);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(62, 39, 35, 0.12);
+    }
+    .hero-gradient-text {
+      background: linear-gradient(135deg, #3E2723 0%, #8B5E3C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .ambient-glow {
+      position: fixed;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(210, 180, 140, 0.15) 0%, rgba(250, 249, 246, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .nav-link {
+      @apply text-cocoa/70 hover:text-primary transition-colors text-sm font-semibold tracking-wide;
+    }
+</style>
+
+
+    <div class="ambient-glow -top-64 -left-64"></div>
+    <div class="ambient-glow -bottom-64 -right-64"></div>
+    <div class="relative z-10 flex h-auto min-h-screen w-full flex-col">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-primary/10 px-10 py-5 backdrop-blur-md sticky top-0 z-50 bg-background-cream/80">
+                <div class="flex items-center gap-4 text-primary">
+                    <div class="size-10 flex items-center justify-center bg-primary/10 rounded-xl">
+                        <span class="material-symbols-outlined text-2xl">account_balance</span>
+                    </div>
+                    <h2 class="text-cocoa text-lg font-extrabold leading-tight tracking-tight uppercase">Decade of
+                        Progress</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-10 items-center">
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a class="nav-link" href="#">Home</a>
+                        <a class="text-primary text-sm font-bold border-b-2 border-primary pb-1"
+                            href="#">Achievements</a>
+                        <a class="nav-link" href="#">Impact Reports</a>
+                        <a class="nav-link" href="#">Timeline</a>
+                    </nav>
+                    <button
+                        class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-full h-11 px-8 bg-primary text-white text-sm font-bold hover:bg-cocoa transition-all shadow-md hover:shadow-lg">
+                        Support Now
+                    </button>
+                </div>
+            </header>
+            <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-20">
+                <div class="text-center mb-24">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">Flagship
+                        Achievements</span>
+                    <h1
+                        class="hero-gradient-text text-5xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-[0.9]">
+                        A Decade of <br />Development
+                    </h1>
+                    <p class="text-cocoa/60 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+                        An era of unprecedented growth, structural transformation, and societal empowerment. Witness the
+                        milestones that redefined our nation.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4Ew08xvcRFhU94hPp2AoFFRsMbgC0HWH-vLMSWwOsHmjNGr0Cdy4Ig66Hz0IrYed-ut4-drRkX37VFU7h5cM5Bc-5iuZjcc8F7A722V45juOKLNwrJfJ5OWmH0_WntfSYGuuUe6gbeF1gTgjMavMakf11IYluM0YK2iVuvU-tZJTDYstRx2q5hpN2Z7yp3NGzzPmnOdkSXQm8yQrq6WuSbMrfjWR80mgByC7NWkY-5wqbcvOPidMSyUtavD5ucVJtRZV83k35ICI');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">6 Lakh+
+                                    Houses</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">സാർവത്രിക ഭവന പദ്ധതി</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Revolutionizing urban living through sustainable housing units equipped with high-speed
+                                connectivity and green amenities.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3SGwRU0QguvidvVyIBLyDz5ga9PWAv6-VQyhBai-oV7eG7iol_WmcPMFB1SC2Q4q3mxhjJqhzzF-srEEhd9e2WSQga7k-G2uvp7ViwfXUrf-Q7tWXIGzA_le7nfn-WmrW0kNAiKn2aGzmh1mOZaWpy89j5gThjegr66zhTh70McD53C6_WeoK9-3ifWM2MKn50ox758XZJYrPYS_OSkynZBJApppFA1ktT0WHsmQjw1S5mUrD8XlZm6Nh1SEWAoKLoymVUSxet8');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">100%
+                                    Literacy</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">വിദ്യാഭ്യാസ വിപ്ലവം</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Transforming traditional schools into high-tech learning hubs, bridging the digital
+                                divide for every student.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCb4PT7AhUIR97uoGYVpH5Cn3_A67AcnkU5hpe1qTcoUMoRM-kStFud3MqqBjl0N99W4aqCLVbId-vpsty1Qev0nAyxcm1isKEcn50aQGioTUpao8_hBYZaVJ06Mdp0LgG7pUJkdSTk8IN7inLYgo1n8lotnC6e91XwZafPOzREZlRp1HH42CXfUx8mV8vUmXoKDHL54c-toZlRXzzU7otgUl0CyqqcB_ln65P_qvnyuId8XmgTmDZawPTqlPCAH2xJczfBG8Ymqe8');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">12,000km
+                                    Highways</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">അടിസ്ഥാന സൗകര്യ വികസനം</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Linking regional economies through a world-class network of expressways and intelligent
+                                transit corridors.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_V_DRjuQN0EncJfRFXN46N1l2qhNr7y1qItc5Dnbv30rNlgZm17dICC5TXJjm7XD5TFInBE2SI-X9yp4DpwgClaw_L4Jy6YINky6BYu6ga6mPe6DR-qvJxYM2I3NhpmhDs3XKDK-4lAUY8isYsWk4ZfUlndBMRIcyx7CLmMDX3FSucXk3nZ8qKx3V-9c3vQXcX6CRRGcSC8uKRhCExNPOidHc58mwODvjPJie3BZ1RbtnYz7PtQKMCwOHC1YiYEDtnNJgUjPd71k');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">Smart Ports</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">നൂതന തുറമുഖങ്ങൾ</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Next-gen maritime logistics utilizing AI and automation to double international cargo
+                                handling capacity.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDiKSZR397E5tW_CyB1mG0EurtjEg7ZxznINd8dQ8C723c5s1I6JbK_KavfeiC5ZYDg_O3cToIuLJKsm6gK9koAXuvf0YjKW4J-QWtU42JUw6BcUbpYiluj2-gIz-C0snwgbLGwAtDkqFZ90grWbljpx0zoaWFIT7dhSk-fdaRjnV9X7LRX7gT6F5l8v-CjNgPuq2hhek1DFoJjEIiCWBw5s40fb8ScjTldrcOJ4_4skVtsW3CGUEshDlAIKwc9x1JmdzaAYka-jyg');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">70% Green
+                                    Energy</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">പുനരുപയോഗ ഊർജ്ജം</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                A monumental shift towards a carbon-neutral economy through massive solar parks and
+                                offshore wind farms.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBGLy2tnpkjf4FFUuE-Qb-M65yZzO_s799My2_ngv6kpcoLj7bxojvfS2_tLPqWqkZOk9fRZtVQUvboM3k91Vlp4fEeZl0eHhLkpczNowVQC2dJ_fLXIDDJaftJcCya9r1dGyf61a8FiWwvUCkJm-AuGg99_ODODtvWhhLhOOKFHo7jX2VFFu2vNU5_NOiPUIpICvXKvJamMRM5moMzjDnu78ryeHvLTIZnKuy2ED7R_oawH95ZvojYzxIbqz8G6AIeU0gyqGK1Bs');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">Health For
+                                    All</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">ആരോഗ്യ സുരക്ഷാ പദ്ധതി</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Universal healthcare access through tertiary care facilities and specialized medical
+                                institutes in every district.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC78BF1ZJJexOeERcud3QTWjS8S4pT7TGnxbiLDWxOUc8AGmTFp0W8f82lRAdy77zJBLHZjLwDxjR-31yO_cu5fL7FcssnN_6AWf1OW_t5K_KXKSv-D84ncEQbKOppJ2gPlUHvkdrL9gY1UKNPcfIiaqxpWmxIgqA8m2MUMExwyi8ecIcs_sjKkOD0E5KPW8GABoICZYi9pxRuvtUXITfYtkklswLUeaOtjMkwcBpqdmQG8NMFMP4z6pvCu8x9WJvG8_KjNL39JafY');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">IT Corridor</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">ഐടി വികസന ഇടനാഴി</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Establishing the nation as a global tech powerhouse with specialized SEZs for AI,
+                                FinTech, and Biotechnology.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1JQldxZ9pu2vruffmGxibZjSFSt_TwiACOPJFS1IyTuA-ifnAFvdpHt8jv5BFbdkucqGrjrJnlFj7rbsFIGe2a88wfMA9dXrIhUXfwTX-yu5kJaZ8GUixTj7FAZd_N-dY4TJcsraKUfehWF-LVrswwRLEB7B-nhYafL187uosFqHTjV_1aYDEeTK_zlEDVjeAjnfJlbGCw5csxGFXqsdVydJYMGQtT4YDgj810CjcRGoaLcIqDJBzW2GIzCVqX-ny4atN4cQUg_A');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">Jala Jeevan</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">ശുദ്ധജല ലഭ്യത</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Ensuring 100% piped drinking water connectivity to the remotest rural households through
+                                sustainable water management.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg3Ak80wzSobo-zYsAxp3rAU825-EAs14Ez8UlJeQBGzZWeYtajiz5BIwt2RYmuAZYHamYhBrINL_TI3NYrQhVbdgbTdEVkanNLXTp0mkz20bUb3oCS4bQPYNT_Se4Ryb9BIXFSYD0wJHgJQ5eHKhbLeWPo0fYGtKLu-X2ZZsAbwopzXCK7um1UVQ4LKi7mF49G9hYA1nz4w-p86Iku9NaflXkO0SnuIHIzrCK7-D9O5xnTjwTCnYRK4MsZZVdhBA9r3wlzAywETI');">
+                            </div>
+                            <div class="absolute inset-0 bg-cocoa/10"></div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+                                <span class="text-cocoa text-xs font-bold uppercase tracking-widest">Next-Gen
+                                    Rail</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-cocoa text-2xl font-bold mb-3">റെയിൽവേ നവീകരണം</h3>
+                            <p class="text-cocoa/70 text-sm leading-relaxed mb-8">
+                                Modernizing the railway spine with high-speed semi-bullet trains and zero-emission
+                                freight corridors.
+                            </p>
+                            <a class="flex items-center gap-2 text-primary font-extrabold text-sm group/btn uppercase tracking-wider"
+                                href="#">
+                                Explore Impact
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="border-t border-primary/10 mt-20 bg-white/50 backdrop-blur-sm py-16 px-6">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 flex items-center justify-center bg-primary text-white rounded-lg">
+                            <span class="material-symbols-outlined">account_balance</span>
+                        </div>
+                        <span class="text-cocoa font-black tracking-tight uppercase text-xl">Decade of Progress</span>
+                    </div>
+                    <div class="flex gap-10">
+                        <a class="text-cocoa/50 hover:text-primary transition-all hover:scale-110" href="#"><span
+                                class="material-symbols-outlined text-3xl">public</span></a>
+                        <a class="text-cocoa/50 hover:text-primary transition-all hover:scale-110" href="#"><span
+                                class="material-symbols-outlined text-3xl">share</span></a>
+                        <a class="text-cocoa/50 hover:text-primary transition-all hover:scale-110" href="#"><span
+                                class="material-symbols-outlined text-3xl">mail</span></a>
+                    </div>
+                    <div class="text-cocoa/40 text-sm font-medium">
+                        © 2024 Development Campaign Office. Crafting a brighter tomorrow.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
