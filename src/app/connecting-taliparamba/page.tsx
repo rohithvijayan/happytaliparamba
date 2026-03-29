@@ -18,8 +18,9 @@ export default function ConnectingTaliparambaPage() {
                         src="/connectinTaliparamba.jpg"
                         alt="Connecting Taliparamba"
                         fill
-                        className="object-cover opacity-30"
                         priority
+                        sizes="100vw"
+                        className="object-cover opacity-30"
                     />
                     <div className="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-[2px]"></div>
 
@@ -80,7 +81,7 @@ export default function ConnectingTaliparambaPage() {
                             </div>
                         </div>
                         <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] md:rounded-[2.5rem] h-64 md:h-full min-h-[300px] border border-stone-200 relative overflow-hidden shadow-xl">
-                            <Image src="/connecting-taliparamba1.png" alt="Education Policy" fill className="object-cover" />
+                            <Image src="/connecting-taliparamba1.png" alt="Education Policy" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                         </div>
                     </div>
 

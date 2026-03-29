@@ -26,8 +26,9 @@ export default function TourismPage() {
                         src="/tourismHero.jpeg"
                         alt="Taliparamba Tourism"
                         fill
-                        className="object-cover"
                         priority
+                        sizes="100vw"
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-[0px]"></div>
 
@@ -66,6 +67,8 @@ export default function TourismPage() {
                                 src="/tourism/TDMC-Logo.webp"
                                 alt="TDMC Initiative"
                                 fill
+                                loading="lazy"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-contain"
                             />
                         </div>
@@ -105,7 +108,7 @@ export default function TourismPage() {
                             ].map((dest, i) => (
                                 <div key={i} className="group cursor-pointer">
                                     <div className="relative h-80 md:h-96 rounded-[2rem] overflow-hidden mb-6 shadow-lg transform group-hover:-translate-y-2 transition-transform duration-500">
-                                        <Image src={dest.img} alt={dest.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                        <Image src={dest.img} alt={dest.name} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                                         <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
                                             <p className="text-white font-malayalam font-bold text-xl md:text-2xl">{dest.name}</p>

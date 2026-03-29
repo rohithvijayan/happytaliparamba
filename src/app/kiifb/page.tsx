@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import kiifbData from "@/data/kiifb_taliparamba_projects.json";
+import LazyYouTubeBackground from "@/components/LazyYouTubeBackground";
 
 const getProjectStatus = (status: string) => {
     const s = status.toLowerCase();
@@ -54,12 +55,13 @@ export default function KiifbPage() {
                 {/* Hero Section */}
                 <section className="relative w-full h-[50vh] md:h-[70vh] bg-stone-900 overflow-hidden">
                     <div className="absolute inset-0 pointer-events-none scale-105">
-                        <iframe
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
-                            src="https://www.youtube.com/embed/R-RtnlIeJbk?autoplay=1&mute=0&loop=1&playlist=R-RtnlIeJbk&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&start=20"
+                        <LazyYouTubeBackground
+                            videoId="R-RtnlIeJbk"
                             title="KIIFB Hero Video"
+                            iframeClassName="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        ></iframe>
+                            extraParams="&start=20"
+                        />
                     </div>
                     <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
                     <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10">

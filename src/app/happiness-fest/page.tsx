@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import festData from "@/data/happinesfest.json";
+import LazyYouTubeBackground from "@/components/LazyYouTubeBackground";
 
 const carouselImages = [
     "/happpinesfest/vert1.webp",
@@ -38,22 +39,21 @@ export default function HappinessFestPage() {
                 <div className="absolute inset-0 opacity-[0.4] mix-blend-multiply" style={{ backgroundImage: "url('/bgTexture.webp')", backgroundSize: '600px 600px', backgroundRepeat: 'repeat' }}></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,191,36,0.05)_0%,transparent_100%)]"></div>
 
-                {/* Ambient floating blobs */}
-                <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-brand-orange/10 blur-[120px] rounded-full mix-blend-multiply animate-pulse" style={{ animationDuration: '8s' }}></div>
-                <div className="absolute top-[40%] -right-[10%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-brand-gold/10 blur-[120px] rounded-full mix-blend-multiply animate-pulse" style={{ animationDuration: '12s' }}></div>
-                <div className="absolute -bottom-[10%] left-[20%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-brand-orange/5 blur-[100px] rounded-full mix-blend-multiply animate-pulse" style={{ animationDuration: '10s' }}></div>
+                {/* Ambient blobs — reduced blur & removed mix-blend-multiply to cut GPU repaint cost on mobile */}
+                <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-brand-orange/10 blur-[60px] rounded-full animate-pulse will-change-[opacity]" style={{ animationDuration: '8s' }}></div>
+                <div className="absolute top-[40%] -right-[10%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-brand-gold/10 blur-[60px] rounded-full animate-pulse will-change-[opacity]" style={{ animationDuration: '12s' }}></div>
             </div>
 
             <div className="relative z-10">
                 {/* Hero Section */}
                 <section className="relative w-full h-[60vh] md:h-[85vh] bg-black overflow-hidden flex items-center justify-center">
                     <div className="absolute inset-0 pointer-events-none scale-105 opacity-60">
-                        <iframe
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
-                            src="https://www.youtube.com/embed/m7CpZGbhCnQ?autoplay=1&mute=0&loop=1&playlist=m7CpZGbhCnQ&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+                        <LazyYouTubeBackground
+                            videoId="m7CpZGbhCnQ"
                             title="Happiness Fest Hero Video"
+                            iframeClassName="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        ></iframe>
+                        />
                     </div>
                     <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
 
@@ -104,17 +104,19 @@ export default function HappinessFestPage() {
                 </section>
 
                 {/* Dynamic Width Gallery Section */}
-                <section className="relative mt-12 md:mt-24 mx-4 md:mx-auto max-w-fit z-10 group flex justify-center">
+                <section className="relative mt-12 md:mt-24 mx-auto max-w-7xl px-4 z-10 group flex justify-center">
                     <div className="relative rounded-[1.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-stone-200/50 bg-stone-900 flex justify-center items-center">
                         {carouselImages.map((src, idx) => (
                             <Image
                                 key={idx}
                                 src={src}
-                                alt="Happiness Fest Gallery"
+                                alt={`Happiness Fest Gallery ${idx + 1}`}
                                 width={1600}
                                 height={1200}
+                                sizes="(max-width: 768px) 100vw, 80vw"
                                 className={`max-h-[40vh] md:max-h-[75vh] w-auto object-contain transition-all duration-1000 ease-in-out ${currentImage === idx ? 'opacity-100 relative' : 'opacity-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'}`}
                                 priority={idx === 0}
+                                loading={idx === 0 ? undefined : "lazy"}
                             />
                         ))}
 

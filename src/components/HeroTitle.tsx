@@ -1,22 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useLanguageToggle } from "@/hooks/useLanguageToggle";
 
 export default function HeroTitle() {
-    const [isMalayalam, setIsMalayalam] = useState(false);
-    const [fade, setFade] = useState(true);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setFade(false); // Start fade out
-            setTimeout(() => {
-                setIsMalayalam((prev) => !prev);
-                setFade(true); // Start fade in
-            }, 600); // Wait for fade out duration
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, []);
+    const { isMalayalam, fade } = useLanguageToggle();
 
     return (
         <h1

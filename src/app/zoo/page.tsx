@@ -1,5 +1,6 @@
 import React from "react";
 import zooData from "@/data/zoo.json";
+import LazyYouTubeBackground from "@/components/LazyYouTubeBackground";
 
 export default function ZooPage() {
     const data = zooData.zoo_project;
@@ -16,12 +17,12 @@ export default function ZooPage() {
                 <section className="relative h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-brand-obsidian">
                     {/* Background Video */}
                     <div className="absolute inset-0 pointer-events-none scale-105 z-0">
-                        <iframe
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
-                            src="https://www.youtube.com/embed/VBVITZHjVFc?autoplay=1&mute=0&loop=1&playlist=VBVITZHjVFc&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+                        <LazyYouTubeBackground
+                            videoId="VBVITZHjVFc"
                             title="Zoo & Safari Park Hero Video"
+                            iframeClassName="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        ></iframe>
+                        />
                     </div>
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] z-10"></div>
 
