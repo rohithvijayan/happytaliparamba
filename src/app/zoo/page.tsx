@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import React from "react";
 import zooData from "@/data/zoo.json";
+
+export const metadata: Metadata = {
+  title: "Zoo & Safari Park | Taliparamba Eco Tourism",
+  description: "The upcoming Zoo & Safari Park in Taliparamba — a landmark eco-tourism destination bringing wildlife, nature, and sustainable development to North Kerala.",
+  openGraph: {
+    url: "/zoo",
+    images: [{ url: "/tourismHero.jpeg", width: 1200, height: 630, alt: "Zoo & Safari Park Taliparamba" }],
+  },
+};
 
 export default function ZooPage() {
     const data = zooData.zoo_project;

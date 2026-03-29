@@ -1,10 +1,37 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Logo from "@/components/Logo";
 import HeroTitle from "@/components/HeroTitle";
 
+export const metadata: Metadata = {
+  title: "Santhosham Taliparamba | Happiness & Progress",
+  description: "Stability, Trust, and a Brighter Future for every generation in Taliparamba. Development, Welfare, and Unity.",
+  openGraph: {
+    url: "/",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Santhosham Taliparamba",
+  description: "Development, welfare and unity initiative for the people of Taliparamba constituency, Kerala.",
+  url: "https://santhoshamtaliparamba.in",
+  logo: "https://santhoshamtaliparamba.in/Thaliparamba_Unit__1__page-0001-removebg-preview.png",
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Taliparamba",
+    containedInPlace: { "@type": "State", name: "Kerala, India" },
+  },
+};
+
 export default function HomePage() {
   return (
     <div className="font-sans bg-brand-obsidian text-slate-200" suppressHydrationWarning>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main>
         <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden hero-gradient px-4" suppressHydrationWarning>
           <div className="relative z-10 max-w-5xl mx-auto text-center overflow-hidden" suppressHydrationWarning>
@@ -56,13 +83,13 @@ export default function HomePage() {
         </section>
 
         <section className="bg-brand-obsidian py-16 md:py-24 px-4 flex flex-col items-center justify-center text-center">
-          <h1 className="font-malayalam font-extrabold text-2xl sm:text-4xl md:text-6xl lg:text-8xl leading-none md:leading-tight mb-6 flex flex-wrap items-center justify-center">
+          <h2 className="font-malayalam font-extrabold text-2xl sm:text-4xl md:text-6xl lg:text-8xl leading-none md:leading-tight mb-6 flex flex-wrap items-center justify-center">
             <span className="text-white">മറ്റാരുണ്ട്</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-gold to-brand-orange mx-4 md:mx-10 my-2 md:my-0">
               LDF
             </span>
             <span className="text-white">അല്ലാതെ</span>
-          </h1>
+          </h2>
           <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full"></div>
         </section>
 

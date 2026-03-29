@@ -13,9 +13,46 @@ const anekMalayalam = Anek_Malayalam({
   weight: ["400", "700", "800"],
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://santhoshamtaliparamba.in";
+
 export const metadata: Metadata = {
-  title: "santhoshamTaliparamaba | Happiness & Progress",
-  description: "Stability, Trust, and a Brighter Future for every generation in Taliparamba.",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Santhosham Taliparamba | Happiness & Progress",
+    template: "%s | Santhosham Taliparamba",
+  },
+  description: "Stability, Trust, and a Brighter Future for every generation in Taliparamba. Development, Welfare, and Unity for the people of Taliparamba constituency.",
+  keywords: ["Taliparamba", "Santhosham", "Taliparamba constituency", "Kerala development", "LDF", "KIIFB", "Taliparamba MLA", "ML Govindhan Master", "Happiness Fest", "TDMC tourism"],
+  authors: [{ name: "Santhosham Taliparamba" }],
+  creator: "Santhosham Taliparamba",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    type: "website",
+    locale: "ml_IN",
+    alternateLocale: "en_IN",
+    url: baseUrl,
+    siteName: "Santhosham Taliparamba",
+    title: "Santhosham Taliparamba | Happiness & Progress",
+    description: "Stability, Trust, and a Brighter Future for every generation in Taliparamba.",
+    images: [
+      {
+        url: "/tourismHero.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Santhosham Taliparamba - Happiness & Progress",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Santhosham Taliparamba | Happiness & Progress",
+    description: "Stability, Trust, and a Brighter Future for every generation in Taliparamba.",
+    images: ["/tourismHero.jpeg"],
+  },
 };
 
 import Header from "@/components/Header";
@@ -26,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="ml" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

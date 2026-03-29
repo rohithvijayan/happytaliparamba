@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import tourismData from "@/data/TDMC.json";
+
+export const metadata: Metadata = {
+  title: "Tourism in Taliparamba | TDMC",
+  description: "Explore the natural beauty of Taliparamba through the Taliparamba Destination Management Council (TDMC). Discover Kuppam River Park, Karimbam Eco Farm, and Mullakodi Floating.",
+  openGraph: {
+    url: "/tourism",
+    images: [{ url: "/tourismHero.jpeg", width: 1200, height: 630, alt: "Taliparamba Tourism" }],
+  },
+};
 
 export default function TourismPage() {
     const data = tourismData.tdmc_webpage;
