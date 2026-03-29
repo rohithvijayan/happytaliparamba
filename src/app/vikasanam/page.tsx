@@ -62,21 +62,35 @@ export default function VikasanamPage() {
       </div>
 
       <div className="relative z-10">
-        {/* Banner Section */}
-        <section className="bg-brand-obsidian py-20 md:py-32 px-4 flex flex-col items-center justify-center text-center">
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-16 h-[2px] bg-gradient-to-r from-brand-orange to-brand-gold mb-8"></div>
-            <h2 className="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] drop-shadow-md">
-              Infrastructure & Development
-            </h2>
+        {/* Hero Section */}
+        <section className="relative h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-brand-obsidian">
+          {/* Background Video */}
+          <div className="absolute inset-0 pointer-events-none scale-105 z-0">
+            <iframe
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
+              src="https://www.youtube.com/embed/R-RtnlIeJbk?autoplay=1&mute=1&loop=1&playlist=R-RtnlIeJbk&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+              title="Vikasanam Hero Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
           </div>
-          <h1 className="font-malayalam font-extrabold text-3xl md:text-6xl lg:text-8xl leading-tight mb-8 text-white">
-            വികസന കാഴ്ചപ്പാട് <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-gold to-brand-orange">
-              സമഗ്രം
-            </span>
-          </h1>
-          <div className="w-16 h-1 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full"></div>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] z-10"></div>
+
+          <div className="relative z-20 max-w-5xl mx-auto text-center px-4 md:px-6">
+            <div className="flex flex-col items-center mb-6 md:mb-8">
+              <div className="w-16 h-[2px] bg-brand-gold mb-6 md:mb-8"></div>
+              <span className="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px]">
+                Infrastructure & Development
+              </span>
+            </div>
+
+            <h1 className="font-malayalam font-extrabold text-3xl md:text-6xl lg:text-8xl leading-tight mb-8 text-white">
+              വികസന കാഴ്ചപ്പാട് <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-gold to-brand-orange">
+                സമഗ്രം
+              </span>
+            </h1>
+            <div className="w-16 h-1 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full mx-auto"></div>
+          </div>
         </section>
 
         {/* Dashboard Area */}
