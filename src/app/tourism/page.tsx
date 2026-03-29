@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import tourismData from "@/data/TDMC.json";
+import { sanitizeHtml } from "@/lib/sanitize";
 
 export const metadata: Metadata = {
   title: "Tourism in Taliparamba | TDMC",
@@ -142,7 +143,7 @@ export default function TourismPage() {
                                     <div className="shrink-0 size-10 md:size-12 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform">
                                         <span className="material-symbols-outlined italic text-xl md:text-2xl">campaign</span>
                                     </div>
-                                    <div className="font-malayalam text-base md:text-lg text-stone-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.text }}></div>
+                                    <div className="font-malayalam text-base md:text-lg text-stone-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.text) }}></div>
                                 </div>
                             ))}
                         </div>

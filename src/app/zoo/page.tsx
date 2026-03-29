@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import zooData from "@/data/zoo.json";
+import { sanitizeHtml } from "@/lib/sanitize";
 
 export const metadata: Metadata = {
   title: "Zoo & Safari Park | Taliparamba Eco Tourism",
@@ -30,6 +31,7 @@ export default function ZooPage() {
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
                             src="https://www.youtube.com/embed/VBVITZHjVFc?autoplay=1&mute=1&loop=1&playlist=VBVITZHjVFc&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
                             title="Zoo & Safari Park Hero Video"
+                            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         ></iframe>
                     </div>
@@ -45,7 +47,7 @@ export default function ZooPage() {
 
                         <div
                             className="font-malayalam font-extrabold text-3xl md:text-7xl text-white leading-tight mb-8 drop-shadow-2xl [&>h2]:m-0"
-                            dangerouslySetInnerHTML={{ __html: data.title }}
+                            dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.title) }}
                         />
                     </div>
                 </section>
@@ -55,7 +57,7 @@ export default function ZooPage() {
                     <div className="max-w-5xl mx-auto text-center italic">
                         <div
                             className="font-malayalam text-lg md:text-2xl text-stone-500 leading-relaxed font-medium [&>p>strong]:text-brand-gold [&>p>strong]:font-black"
-                            dangerouslySetInnerHTML={{ __html: data.overview }}
+                            dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.overview) }}
                         />
                     </div>
                 </section>
@@ -84,11 +86,11 @@ export default function ZooPage() {
                                         <div>
                                             <div
                                                 className="font-malayalam font-black text-xl md:text-2xl text-stone-900 mb-4 [&>h3]:m-0 leading-tight"
-                                                dangerouslySetInnerHTML={{ __html: item.topic }}
+                                                dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.topic) }}
                                             />
                                             <div
                                                 className="font-malayalam text-base md:text-lg text-stone-600 leading-relaxed [&>p>strong]:text-brand-orange [&>p>strong]:font-black"
-                                                dangerouslySetInnerHTML={{ __html: item.details }}
+                                                dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.details) }}
                                             />
                                         </div>
                                     </div>

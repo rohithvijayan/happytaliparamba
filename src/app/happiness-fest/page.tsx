@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import festData from "@/data/happinesfest.json";
+import { sanitizeHtml } from "@/lib/sanitize";
 
 const carouselImages = [
     "/happpinesfest/vert1.webp",
@@ -52,6 +53,7 @@ export default function HappinessFestPage() {
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
                             src="https://www.youtube.com/embed/m7CpZGbhCnQ?autoplay=1&mute=1&loop=1&playlist=m7CpZGbhCnQ&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
                             title="Happiness Fest Hero Video"
+                            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         ></iframe>
                     </div>
@@ -97,7 +99,7 @@ export default function HappinessFestPage() {
                             <div className="w-12 h-1 bg-brand-gold mb-6 md:mb-8 rounded-full mx-auto md:mx-0"></div>
                             <div
                                 className="font-malayalam text-base md:text-xl text-stone-600 leading-loose space-y-6 [&>p>strong]:text-brand-orange [&>p>strong]:font-black"
-                                dangerouslySetInnerHTML={{ __html: body.introduction }}
+                                dangerouslySetInnerHTML={{ __html: sanitizeHtml(body.introduction) }}
                             />
                         </div>
                     </div>
@@ -138,7 +140,7 @@ export default function HappinessFestPage() {
                     {/* Attractions Section */}
                     <div className="space-y-10 md:space-y-12">
                         <div className="text-center">
-                            <div dangerouslySetInnerHTML={{ __html: body.attractions.section_title }} className="font-malayalam font-black text-2xl md:text-4xl text-stone-800 mb-4" />
+                            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(body.attractions.section_title) }} className="font-malayalam font-black text-2xl md:text-4xl text-stone-800 mb-4" />
                             <div className="w-12 h-1 bg-brand-gold mx-auto rounded-full"></div>
                         </div>
 
@@ -148,7 +150,7 @@ export default function HappinessFestPage() {
                                 __html: body.attractions.items_list.replace('<ul>', '').replace('</ul>', '').split('<li>').filter(s => s).map(item => `
                             <div class="bg-white/90 backdrop-blur-sm border border-stone-200 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] hover:shadow-xl hover:-translate-y-1 transition-all group relative overflow-hidden shadow-sm">
                                 <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-7xl md:text-9xl text-brand-gold/5 group-hover:text-brand-gold/10 transition-colors">celebration</span>
-                                <div class="relative z-10 text-stone-600 text-base md:text-lg leading-relaxed">${item.replace('</li>', '')}</div>
+                                <div class="relative z-10 text-stone-600 text-base md:text-lg leading-relaxed">${sanitizeHtml(item.replace('</li>', ''))}</div>
                             </div>
                         `).join('')
                             }}
