@@ -68,7 +68,7 @@ export default function VikasanamPage() {
           <div className="absolute inset-0 pointer-events-none scale-105 z-0">
             <iframe
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.77777778vh] h-[56.25vw]"
-              src="https://www.youtube.com/embed/R-RtnlIeJbk?autoplay=1&mute=1&loop=1&playlist=R-RtnlIeJbk&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+              src="https://www.youtube.com/embed/R-RtnlIeJbk?autoplay=1&mute=0&loop=1&playlist=R-RtnlIeJbk&vq=hd1080&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
               title="Vikasanam Hero Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
