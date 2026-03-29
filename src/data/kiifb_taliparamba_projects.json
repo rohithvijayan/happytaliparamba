@@ -1,0 +1,134 @@
+{
+  "filter": {
+    "constituency": "Taliparamba",
+    "district": "Kannur"
+  },
+  "mla": {
+    "name": "Shri M.V. Govindan Master",
+    "constituency": "Taliparamba",
+    "sl_no": 8,
+    "youtube_link": "https://youtu.be/R-RtnlIeJbk"
+  },
+  "total_projects": 17,
+  "projects": [
+    {
+      "id": 1,
+      "name": "GHSS Chattukappara",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 144409086
+    },
+    {
+      "id": 2,
+      "name": "KILA-KIIFB Project — GHS Thadikkadavu",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 144409086
+    },
+    {
+      "id": 3,
+      "name": "KILA-KIIFB Project — AKSGHS Malappatam",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 144409086
+    },
+    {
+      "id": 4,
+      "name": "KILA-KIIFB Project — GHS Kalikkadavu",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 144409086
+    },
+    {
+      "id": 5,
+      "name": "GOVT VHSS KURUMATHUR",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 248347000
+    },
+    {
+      "id": 6,
+      "name": "IMNSGHSS Mayyil",
+      "department": "General Education",
+      "status": "Contract Process Completed",
+      "estimated_amount_inr": 233397170
+    },
+    {
+      "id": 7,
+      "name": "GHSS Tagore Vidya Nikethan",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 116251052
+    },
+    {
+      "id": 8,
+      "name": "GHS MORAZHA",
+      "department": "General Education",
+      "status": "Contract Process Completed",
+      "estimated_amount_inr": 179509069
+    },
+    {
+      "id": 9,
+      "name": "KKNPM Govt. Vocational Higher Secondary School Pariyaram",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 179509069
+    },
+    {
+      "id": 10,
+      "name": "VHSS Tagore Vidya Nikethan (INKEL)",
+      "department": "General Education",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 62771431
+    },
+    {
+      "id": 11,
+      "name": "VHSS Tagore Vidya Nikethan (KITE)",
+      "department": "General Education",
+      "status": "Project Initiated",
+      "estimated_amount_inr": 63530000
+    },
+    {
+      "id": 12,
+      "name": "Development of THQH Thaliparamba",
+      "department": "Health & Family Welfare",
+      "status": "Design Basis Report Created",
+      "estimated_amount_inr": 229368067
+    },
+    {
+      "id": 13,
+      "name": "Construction of Office Building for Anthur Municipality",
+      "department": "LSGD",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 139561000
+    },
+    {
+      "id": 14,
+      "name": "Kuppam-Chudala-Panapuzha & Mathamangalam Eriyam Road",
+      "department": "Public Works Department",
+      "status": "Contract Process Completed",
+      "estimated_amount_inr": 620835855
+    },
+    {
+      "id": 15,
+      "name": "Construction of New Building for Sub Registrar Office at Thaliparamba — Civil Works",
+      "department": "Registration",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 100925955
+    },
+    {
+      "id": 16,
+      "name": "Electrification of Sub Registrar Office at Thaliparamba",
+      "department": "Registration",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 100925955
+    },
+    {
+      "id": 17,
+      "name": "SCDD — Construction of Model Residential School at Peringome, Thaliparamba",
+      "department": "SC/ST",
+      "status": "WBS Base One Approved",
+      "estimated_amount_inr": 147000000
+    }
+  ]
+}

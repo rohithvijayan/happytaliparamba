@@ -1,145 +1,166 @@
-import Link from "next/link";
-import Image from "next/image";
-import projects from "@/data/projects.json";
+"use client";
+
+import { useState, useMemo, useEffect } from "react";
+import projectsData from "@/data/projects.json";
+
+const ITEMS_PER_PAGE = 20;
+
+const getStatusColor = (status: string) => {
+  const s = status.toLowerCase();
+  if (s.includes("പൂർത്തീകരിച്ചു")) return "bg-emerald-50 text-emerald-700 border-emerald-200";
+  if (s.includes("tender") || s.includes("process") || s.includes("progress")) return "bg-amber-50 text-amber-700 border-amber-200";
+  if (s.includes("approved")) return "bg-blue-50 text-blue-700 border-blue-200";
+  return "bg-stone-50 text-stone-600 border-stone-200";
+};
+
+interface Project {
+  id: string;
+  projectname: string;
+  cost: number;
+  status: string;
+}
 
 export default function VikasanamPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const projects = projectsData as Project[];
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter((project) => {
+      const matchesSearch =
+        project.projectname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.status.toLowerCase().includes(searchQuery.toLowerCase());
+
+      if (statusFilter === "All") return matchesSearch;
+      if (statusFilter === "Completed") return matchesSearch && project.status.toLowerCase().includes("പൂർത്തീകരിച്ചു");
+      if (statusFilter === "Ongoing") return matchesSearch && (project.status.toLowerCase().includes("tender") || project.status.toLowerCase().includes("process") || project.status.toLowerCase().includes("progress"));
+      if (statusFilter === "Approved") return matchesSearch && project.status.toLowerCase().includes("approved");
+
+      return matchesSearch;
+    });
+  }, [searchQuery, statusFilter, projects]);
+
+  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
+  const currentProjects = filteredProjects.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, statusFilter]);
+
+  const categories = ["All", "Completed", "Ongoing", "Approved"];
+
   return (
-    <div className="bg-brand-obsidian min-h-screen relative overflow-x-hidden selection:bg-brand-gold/30 font-sans text-stone-200">
-      {/* Dynamic Background Elements */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-gold/5 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-orange/5 blur-[120px] rounded-full"></div>
+    <div className="min-h-screen font-sans text-stone-600 selection:bg-brand-gold/20 pb-20 overflow-x-hidden relative" suppressHydrationWarning>
+      {/* Page Background Texture */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-white">
+        <div className="absolute inset-0 opacity-[0.4] mix-blend-multiply" style={{ backgroundImage: "url('/bgTexture.webp')", backgroundSize: '600px 600px', backgroundRepeat: 'repeat' }}></div>
       </div>
 
-      <div className="relative z-10 flex h-auto min-h-screen w-full flex-col">
-        {/* Navigation */}
-        <header className="flex items-center justify-between whitespace-nowrap border-b border-white/5 px-6 md:px-12 py-5 backdrop-blur-xl sticky top-0 z-50 bg-brand-obsidian/60">
-          <div className="flex items-center gap-4">
-            <Image 
-              src="/Thaliparamba_Unit__1__page-0001-removebg-preview.png"
-              alt="Santhosham Taliparamba Logo"
-              width={48}
-              height={48}
-              className="object-contain hover:scale-110 transition-transform duration-500"
-            />
-            <div>
-              <h2 className="text-white text-sm font-black tracking-tight leading-none uppercase italic">
-                Development <span className="text-brand-gold ml-1">Archive</span>
-              </h2>
-            </div>
+      <div className="relative z-10">
+        {/* Banner Section */}
+        <section className="bg-brand-obsidian py-20 md:py-32 px-4 flex flex-col items-center justify-center text-center">
+          <div className="flex flex-col items-center mb-8">
+            <div className="w-16 h-[2px] bg-gradient-to-r from-brand-orange to-brand-gold mb-8"></div>
+            <h2 className="text-brand-gold font-black uppercase tracking-[0.4em] text-[10px] drop-shadow-md">
+              Infrastructure & Development
+            </h2>
           </div>
-          
-          <div className="flex items-center gap-8">
-            <nav className="hidden lg:flex items-center gap-8">
-              <Link
-                href="/"
-                className="text-stone-400 hover:text-brand-gold transition-all text-[10px] font-black uppercase tracking-widest"
-              >
-                Home
-              </Link>
-              <Link
-                href="/vikasanam"
-                className="text-brand-gold text-[10px] font-black uppercase tracking-widest border-b-2 border-brand-gold pb-1"
-              >
-                Projects
-              </Link>
-            </nav>
-            <Link
-              href="/"
-              className="flex items-center justify-center rounded-full h-9 px-6 bg-brand-gold text-brand-obsidian text-[10px] font-black uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-brand-gold/10"
-            >
-              Back Home
-            </Link>
-          </div>
-        </header>
+          <h1 className="font-malayalam font-extrabold text-3xl md:text-6xl lg:text-8xl leading-tight mb-8 text-white">
+            വികസന കാഴ്ചപ്പാട് <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-gold to-brand-orange">
+              സമഗ്രം
+            </span>
+          </h1>
+          <div className="w-16 h-1 bg-gradient-to-r from-brand-orange to-brand-gold rounded-full"></div>
+        </section>
 
-        <main className="flex-1 max-w-full mx-auto w-full px-4 md:px-10 py-16">
-          {/* Header Section */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 px-2">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/5 border border-brand-gold/10 text-brand-gold text-[9px] font-black uppercase tracking-[0.2em] mb-6">
-                <span className="size-1.5 rounded-full bg-brand-gold animate-pulse"></span>
-                Constituency Progress Report
-              </div>
-              <h1 className="text-4xl md:text-6xl font-black text-white uppercase italic leading-[0.9] tracking-tighter">
-                Decade of <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-gold">Development</span>
-              </h1>
-            </div>
-            <div className="flex items-center gap-6 pb-2">
-              <div className="flex flex-col">
-                <span className="text-3xl font-black text-white leading-none tracking-tighter italic">{projects.length}</span>
-                <span className="text-[9px] text-stone-500 font-bold uppercase tracking-widest mt-1">Total Projects</span>
-              </div>
-              <div className="w-[1px] h-10 bg-white/10"></div>
-              <div className="flex flex-col">
-                  <span className="text-brand-gold font-black italic uppercase text-xs tracking-widest">Live Updates</span>
-                  <p className="text-[10px] text-stone-500 font-medium">Taliparamba Unit</p>
-              </div>
-            </div>
-          </div>
-
-          {/* High-Density Project Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="group relative bg-brand-charcoal border border-white/5 p-5 rounded-3xl transition-all duration-300 hover:bg-white/[0.08] hover:border-brand-gold/20 flex flex-col justify-between shadow-xl"
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex items-center gap-2">
-                      <div className={`size-2 rounded-full shadow-[0_0_8px] ${
-                        project.status.includes("പൂർത്ത") 
-                          ? "bg-brand-gold shadow-brand-gold/50" 
-                          : "bg-brand-orange shadow-brand-orange/50"
-                      }`}></div>
-                      <span className="text-[9px] font-black uppercase tracking-widest text-stone-500 group-hover:text-stone-300 transition-colors">
-                        {project.status.includes("പൂർത്ത") ? "Completed" : "Ongoing"}
-                      </span>
-                    </div>
-                    <div className="bg-brand-obsidian/50 border border-white/5 px-2 py-0.5 rounded-lg">
-                      <span className="text-[10px] font-black text-brand-gold italic">₹{project.cost} <span className="text-[8px] font-medium not-italic ml-0.5 opacity-60">Cr</span></span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="font-malayalam text-base font-bold leading-snug text-white group-hover:text-brand-gold transition-colors mb-4 line-clamp-3">
-                    {project.projectname}
-                  </h3>
-                </div>
-
-                <div className="pt-4 border-t border-white/5 flex items-center justify-between opacity-40 group-hover:opacity-100 transition-opacity">
-                   <div className="flex items-center gap-1.5 text-stone-500">
-                      <span className="material-symbols-outlined text-xs">location_on</span>
-                      <span className="text-[8px] font-bold uppercase tracking-widest">Regional Unit</span>
-                   </div>
-                   <span className="material-symbols-outlined text-xs text-brand-gold scale-75">arrow_forward_ios</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </main>
-
-        {/* Footer */}
-        <footer className="border-t border-white/5 mt-20 bg-brand-obsidian py-12 px-6">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-                <Image 
-                  src="/Thaliparamba_Unit__1__page-0001-removebg-preview.png"
-                  alt="Santhosham Taliparamba Logo"
-                  width={48}
-                  height={48}
-                  className="object-contain hover:scale-110 transition-transform duration-500"
+        {/* Dashboard Area */}
+        <div className="max-w-7xl mx-auto px-4 md:px-10 mt-12 md:mt-24">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
+            <div className="flex-1 max-w-xl">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 mb-6">Constituency Projects</h3>
+              <div className="relative group">
+                <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 transition-colors group-focus-within:text-brand-gold">search</span>
+                <input
+                  type="text"
+                  placeholder="Search projects..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-white/80 backdrop-blur-sm border border-stone-200 rounded-2xl py-3 md:py-4 pl-12 pr-4 text-xs md:text-sm focus:outline-none focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/5 transition-all shadow-sm"
                 />
-                <span className="text-xl font-black tracking-tighter text-white uppercase italic">
-                  Santhosham<span className="text-brand-gold">Taliparamba</span>
-                </span>
+              </div>
             </div>
-            <p className="text-stone-600 text-[9px] font-black uppercase tracking-[0.3em]">
-              © 2024 thaliparamba unit • building our future
-            </p>
+
+            <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-4 md:pb-0 hide-scrollbar">
+              {categories.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setStatusFilter(tab)}
+                  className={`shrink-0 px-4 py-2 rounded-xl text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-all border ${statusFilter === tab
+                    ? "bg-stone-900 text-white border-stone-900 shadow-lg"
+                    : "bg-white/80 backdrop-blur-sm text-stone-500 border-stone-200 hover:border-stone-300 shadow-sm"
+                    }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
-        </footer>
+
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+            {currentProjects.length > 0 ? (
+              currentProjects.map((project) => (
+                <div key={project.id} className="bg-white/80 backdrop-blur-sm p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-xl border border-stone-100 hover:-translate-y-2 transition-transform duration-500 group flex flex-col justify-between" suppressHydrationWarning>
+                  <div>
+                    <div className="flex items-center justify-between mb-8">
+                      <span className={`text-[8px] md:text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full border shadow-sm ${getStatusColor(project.status)}`}>
+                        {project.status}
+                      </span>
+                      <span className="material-symbols-outlined text-stone-200 group-hover:text-brand-gold transition-colors">analytics</span>
+                    </div>
+                    <h4 className="font-malayalam font-extrabold text-lg md:text-xl text-stone-900 mb-6 leading-tight group-hover:text-brand-orange transition-colors">
+                      {project.projectname}
+                    </h4>
+                  </div>
+
+                  <div className="pt-8 border-t border-stone-100 mt-auto">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Estimated Cost</p>
+                    <p className="font-sans font-black text-stone-900 text-lg italic">₹{project.cost} Cr</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full py-32 text-center">
+                <span className="material-symbols-outlined text-stone-200 text-7xl mb-6">inventory_2</span>
+                <p className="text-stone-400 font-bold tracking-widest uppercase text-sm">No results matching your criteria.</p>
+              </div>
+            )}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="mt-20 flex flex-wrap items-center justify-center gap-2 md:gap-4">
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`size-10 md:size-12 rounded-xl text-xs font-black transition-all ${currentPage === i + 1
+                    ? "bg-brand-gold text-brand-obsidian shadow-lg shadow-brand-gold/20"
+                    : "bg-white/80 backdrop-blur-sm text-stone-400 hover:text-stone-600 border border-stone-200"
+                    }`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

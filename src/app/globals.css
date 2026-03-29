@@ -2,8 +2,8 @@
 
 @theme {
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-malayalam: var(--font-noto-sans-malayalam), sans-serif;
-  
+  --font-malayalam: var(--font-anek-malayalam), sans-serif;
+
   --color-brand-gold: #FFB800;
   --color-brand-orange: #FF5C00;
   --color-brand-charcoal: #1C1917;
@@ -12,7 +12,7 @@
   --color-primary: var(--color-brand-gold);
   --color-secondary: var(--color-brand-orange);
   --color-accent: var(--color-brand-orange);
-  
+
   --color-background-dark: #0F0D0C;
   --color-card-dark: #1C1917;
   --color-deep-navy: #0F0D0C;
@@ -38,14 +38,15 @@ body {
 }
 
 .hero-gradient {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/heromobile.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/heromobile.webp');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 1024px) {
   .hero-gradient {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/heroDesktop (2).webp');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/heroDesktop (2).webp');
   }
 }
 
@@ -87,10 +88,26 @@ body {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
+}
+
+.font-malayalam {
+  font-family: "Anek Malayalam", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
