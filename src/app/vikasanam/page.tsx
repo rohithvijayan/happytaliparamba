@@ -145,7 +145,7 @@ export default function VikasanamPage() {
 
                   <div className="pt-8 border-t border-stone-100 mt-auto">
                     <p className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Estimated Cost</p>
-                    <p className="font-sans font-black text-stone-900 text-lg italic">₹{project.cost} Cr</p>
+                    <p className="font-malayalam font-black text-stone-900 text-lg italic">₹{project.cost} കോടി</p>
                   </div>
                 </div>
               ))
